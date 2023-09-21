@@ -5,10 +5,69 @@
 .top-nav {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
   height: 64px;
   padding: 0 24px;
   border-bottom: 1px solid rgb(217, 209, 209);
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.activity {
+    display: flex;
+    align-items: stretch;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }  
+
+.search-section {
+  display: flex;
+  align-items: center;
+}
+
+.search-container {
+    display: none;
+    flex-grow: 1;
+    background-color: #f0f0f0;
+    max-width: 355px;
+    border-radius: 3px;
+}
+
+.search-container input {
+    flex-grow: 1;
+    margin: 8px;
+    border:none;
+    background-color: transparent;
+  }
+
+  .search-container input:focus,
+  .search-container input:active {
+    outline: none;
+  }
+
+  .search-section button {
+    margin-left: 8px;
+  }
+
+
+.activity li {
+  padding: 1px 6px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  border-bottom: 4px solid rgba(255, 255, 255, 0);
+  transition: ease-in-out;
+  transition-duration: 200ms;
+}
+
+.activity li:hover {
+  border-bottom: 4px solid #333;
 }
 
 .menu-container {
@@ -17,14 +76,13 @@
 }
 
 .menu-container::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .menu {
   margin: 0;
   justify-content: center;
   align-items: stretch;
-  border-bottom: 1px solid rgb(217, 209, 209);
   list-style-type: none;
   white-space: nowrap; /* Prevent menu items from wrapping to the next line */
 }
@@ -34,10 +92,12 @@
   justify-items: center;
   align-items: center;
   border-bottom: 4px solid rgba(255, 255, 255, 0);
+  transition: ease-in-out;
+  transition-duration: 200ms;
 }
 
 .menu a {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
 }
 
@@ -53,6 +113,7 @@
     background-color: #f0f0f0;
     padding: 8px 10px;
     margin-right: 5px;
+    border-radius: 3px;
   }
 }
 
@@ -61,6 +122,7 @@
     display: flex;
     padding: 0;
     min-height: 40px;
+    border-bottom: 1px solid rgb(217, 209, 209);
   }
 
   .menu li {
@@ -70,10 +132,19 @@
   .menu li:hover {
     border-bottom: 4px solid #333;
   }
+
+  .search-container {
+    display: flex;
+  }
+
+  .search-section,
+  .activity {
+    flex-grow: 1;
+  }
 }
 
 @media (min-width: 960px) {
-    .menu li {
-        margin-right: 25px;
-      }
+  .menu li {
+    margin-right: 25px;
+  }
 }
