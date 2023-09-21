@@ -1,0 +1,79 @@
+.main {
+  font-family: "Roboto", "Roboto-Regular", Helvetica, Arial, sans-serif;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  padding: 0 24px;
+  border-bottom: 1px solid rgb(217, 209, 209);
+}
+
+.menu-container {
+  overflow-x: auto;
+  flex-grow: 1; /* Allow the menu container to expand and fill available space */
+}
+
+.menu-container::-webkit-scrollbar {
+    display: none;
+}
+
+.menu {
+  margin: 0;
+  justify-content: center;
+  align-items: stretch;
+  border-bottom: 1px solid rgb(217, 209, 209);
+  list-style-type: none;
+  white-space: nowrap; /* Prevent menu items from wrapping to the next line */
+}
+
+.menu li {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  border-bottom: 4px solid rgba(255, 255, 255, 0);
+}
+
+.menu a {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Apply this style when the screen width is less than 768px */
+@media (max-width: 768px) {
+  .menu {
+    display: inline-flex;
+    padding: 8px;
+    flex-wrap: nowrap; /* Prevent menu items from wrapping */
+  }
+
+  .menu li {
+    background-color: #f0f0f0;
+    padding: 8px 10px;
+    margin-right: 5px;
+  }
+}
+
+@media (min-width: 768px) {
+  .menu {
+    display: flex;
+    padding: 0;
+    min-height: 40px;
+  }
+
+  .menu li {
+    margin-right: 15px;
+  }
+
+  .menu li:hover {
+    border-bottom: 4px solid #333;
+  }
+}
+
+@media (min-width: 960px) {
+    .menu li {
+        margin-right: 25px;
+      }
+}

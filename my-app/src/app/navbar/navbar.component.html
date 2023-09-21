@@ -1,0 +1,14 @@
+<div class="main">
+  <nav class="top-nav">
+    <img src="assets/DSW-logo-small.svg" alt="dsw" />
+    <div class="search">search</div>
+  </nav>
+
+  <div class="menu-container">
+    <ul class="menu">
+      <li *ngFor="let menuItem of menuItems">
+        <a [style.color]="menuItem.textColor">{{ menuItem.name }}</a>
+      </li>
+    </ul>
+  </div>
+</div>
