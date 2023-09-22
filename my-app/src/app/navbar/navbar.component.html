@@ -9,12 +9,23 @@
         <div class="search-container">
           <input type="text" placeholder="Search styles, brands, & more" />
         </div>
-
-        <button>search</button>
+        <div class="search-icon">
+          <fa-icon [icon]="faMagnifyingGlass" style="font-size: 17px"></fa-icon>
+        </div>
       </div>
-      <li>sign in</li>
-      <li>location</li>
-      <li>bag</li>
+      <li>
+        <fa-icon [icon]="faUser" style="font-size: 17px; margin-right: 8px;"></fa-icon>
+        <p>Sign in <fa-icon [icon]="faCaretDown" style="font-size: 14px; margin-left: 4px;"></fa-icon></p>
+      </li>
+      <li>
+        <fa-icon [icon]="faLocationDot" style="font-size: 17px; margin-right: 8px;"></fa-icon
+        >
+        <p>Location</p>
+      </li>
+      <li>
+        <fa-icon [icon]="faShoppingBag" style="font-size: 17px; margin-right: 8px;"></fa-icon>
+        <p>Bag</p>
+      </li>
     </ul>
   </nav>
 

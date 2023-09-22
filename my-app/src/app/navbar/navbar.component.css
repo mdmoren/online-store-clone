@@ -16,6 +16,7 @@
   justify-content: center;
   align-items: center;
   padding-right: 20px;
+  cursor: pointer;
 }
 
 .activity {
@@ -25,6 +26,10 @@
     padding: 0;
     list-style-type: none;
   }  
+
+.activity p {
+  display: none;
+}
 
 .search-section {
   display: flex;
@@ -37,6 +42,7 @@
     background-color: #f0f0f0;
     max-width: 355px;
     border-radius: 3px;
+    height: 40px;
 }
 
 .search-container input {
@@ -51,23 +57,32 @@
     outline: none;
   }
 
-  .search-section button {
+  .search-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-left: 8px;
+    border-radius: 3px;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
   }
 
 
 .activity li {
   padding: 1px 6px;
+  margin-left: 12px;
   display: flex;
   justify-items: center;
   align-items: center;
-  border-bottom: 4px solid rgba(255, 255, 255, 0);
+  border-bottom: 3px solid rgba(255, 255, 255, 0);
   transition: ease-in-out;
-  transition-duration: 200ms;
+  transition-duration: 150ms;
+  cursor: pointer;
 }
 
 .activity li:hover {
-  border-bottom: 4px solid #333;
+  border-bottom: 3px solid #333;
 }
 
 .menu-container {
@@ -91,9 +106,10 @@
   display: flex;
   justify-items: center;
   align-items: center;
-  border-bottom: 4px solid rgba(255, 255, 255, 0);
+  border-bottom: 3px solid rgba(255, 255, 255, 0);
   transition: ease-in-out;
-  transition-duration: 200ms;
+  transition-duration: 150ms;
+  cursor: pointer;
 }
 
 .menu a {
@@ -118,6 +134,15 @@
 }
 
 @media (min-width: 768px) {
+
+.activity p {
+  display: block;
+}
+
+.search-icon {
+  background-color: #f0f0f0;
+}
+
   .menu {
     display: flex;
     padding: 0;
@@ -130,7 +155,7 @@
   }
 
   .menu li:hover {
-    border-bottom: 4px solid #333;
+    border-bottom: 3px solid #333;
   }
 
   .search-container {
