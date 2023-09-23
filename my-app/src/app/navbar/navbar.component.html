@@ -14,16 +14,30 @@
         </div>
       </div>
       <li>
-        <fa-icon [icon]="faUser" style="font-size: 17px; margin-right: 8px;"></fa-icon>
-        <p>Sign in <fa-icon [icon]="faCaretDown" style="font-size: 14px; margin-left: 4px;"></fa-icon></p>
+        <fa-icon
+          [icon]="faUser"
+          style="font-size: 17px; margin-right: 8px"
+        ></fa-icon>
+        <p>
+          Sign in
+          <fa-icon
+            [icon]="faCaretDown"
+            style="font-size: 14px; margin-left: 4px"
+          ></fa-icon>
+        </p>
       </li>
       <li>
-        <fa-icon [icon]="faLocationDot" style="font-size: 17px; margin-right: 8px;"></fa-icon
-        >
+        <fa-icon
+          [icon]="faLocationDot"
+          style="font-size: 17px; margin-right: 8px"
+        ></fa-icon>
         <p>Location</p>
       </li>
       <li>
-        <fa-icon [icon]="faShoppingBag" style="font-size: 17px; margin-right: 8px;"></fa-icon>
+        <fa-icon
+          [icon]="faShoppingBag"
+          style="font-size: 17px; margin-right: 8px"
+        ></fa-icon>
         <p>Bag</p>
       </li>
     </ul>
@@ -31,8 +45,24 @@
 
   <div class="menu-container">
     <ul class="menu">
-      <li *ngFor="let menuItem of menuItems">
-        <a [style.color]="menuItem.textColor">{{ menuItem.name }}</a>
+      <li
+        *ngFor="let menuItem of menuItems"
+        (click)="toggleSubMenu(menuItem)"
+        class="menu-item"
+      >
+        <a [style.color]="menuItem.textColor" class="menu-item-label">{{
+          menuItem.name
+        }}</a>
+        <ul *ngIf="menuItem.showSubMenu" class="sub-menu">
+          <li *ngFor="let subMenuItem of menuItem.subMenu">
+            <a>{{ subMenuItem.name }}</a>
+            <ul>
+              <li *ngFor="let item of subMenuItem.items">
+                <a>{{ item }}</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </li>
     </ul>
   </div>

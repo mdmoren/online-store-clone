@@ -11,6 +11,13 @@ import {
 interface MenuItem {
   name: string;
   textColor: string;
+  subMenu?: SubMenuItem[];
+  showSubMenu?: boolean; // Add showSubMenu property
+}
+
+interface SubMenuItem {
+  name: string; // Category name
+  items: string[]; // Items within the category
 }
 
 @Component({
@@ -26,8 +33,22 @@ export class NavbarComponent {
   faShoppingBag = faShoppingBag;
 
   menuItems: MenuItem[] = [
-    { name: 'Women', textColor: '#333' },
-    { name: 'Men', textColor: '#333' },
+    {
+      name: 'Women',
+      textColor: '#333',
+      subMenu: [
+        {
+          name: 'Shoes',
+          items: ['Athletic & Sneakers', 'Boots & Booties'],
+        },
+      ],
+    },
+    { name: 'Men', textColor: '#333', subMenu: [
+      {
+        name: 'Shoes',
+        items: ['Athletic & Sneakers', 'Boots'],
+      },
+    ], },
     { name: 'Kids', textColor: '#333' },
     { name: 'Bags & Accesories', textColor: '#333' },
     { name: 'Athletic & Sneakers', textColor: '#333' },
@@ -37,4 +58,9 @@ export class NavbarComponent {
     { name: 'Clearance', textColor: '#C31E45' },
     { name: 'Deals', textColor: '#C31E45' },
   ];
+
+    // Function to toggle the display of the sub-menu
+    toggleSubMenu(menuItem: MenuItem) {
+      menuItem.showSubMenu = !menuItem.showSubMenu;
+    }
 }
