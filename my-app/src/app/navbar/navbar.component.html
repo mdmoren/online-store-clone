@@ -1,7 +1,44 @@
 <div class="main">
   <nav class="top-nav">
     <div class="image-container">
+      <fa-icon [icon]="faBars" (click)="toggleMobileMenu()"></fa-icon>
       <img src="assets/DSW-logo-small.svg" alt="dsw" />
+    </div>
+
+    <div class="mobile-menu" *ngIf="showMobileMenu">
+      <div class="mobile-menu-container">
+        <div class="mobile-menu-header">
+          <div class="mobile-search-section">
+            <div class="mobile-search-container">
+              <fa-icon
+                [icon]="faMagnifyingGlass"
+                style="font-size: 17px; margin: 8px"
+              ></fa-icon>
+              <input type="text" placeholder="Search styles, brands, & more" />
+            </div>
+            <div class="mobile-search-icon">
+              <fa-icon
+                [icon]="faMagnifyingGlass"
+                style="font-size: 17px; opacity: 50%"
+              ></fa-icon>
+            </div>
+          </div>
+
+          <div>
+            <fa-icon
+              [icon]="faXmark"
+              style="font-size: 20px"
+              (click)="toggleMobileMenu()"
+            ></fa-icon>
+          </div>
+        </div>
+
+        <ul class="mobile-links">
+          <li *ngFor="let menuItem of menuItems">
+            <a [style.color]="menuItem.textColor">{{ menuItem.name }}</a>
+          </li>
+        </ul>
+      </div>
     </div>
 
     <ul class="activity">
@@ -16,7 +53,7 @@
       <li>
         <fa-icon
           [icon]="faUser"
-          style="font-size: 17px; margin-right: 8px"
+          style="font-size: 17px"
         ></fa-icon>
         <p>
           Sign in
@@ -29,14 +66,14 @@
       <li>
         <fa-icon
           [icon]="faLocationDot"
-          style="font-size: 17px; margin-right: 8px"
+          style="font-size: 17px"
         ></fa-icon>
         <p>Location</p>
       </li>
       <li>
         <fa-icon
           [icon]="faShoppingBag"
-          style="font-size: 17px; margin-right: 8px"
+          style="font-size: 17px"
         ></fa-icon>
         <p>Bag</p>
       </li>
@@ -50,13 +87,19 @@
         (click)="toggleSubMenu(menuItem)"
         class="menu-item"
       >
+        <!-- loop through menu items -->
         <a [style.color]="menuItem.textColor" class="menu-item-label">{{
           menuItem.name
         }}</a>
         <ul *ngIf="menuItem.showSubMenu" class="sub-menu">
-          <li *ngFor="let subMenuItem of menuItem.subMenu">
+          <!-- loop through sub menu items -->
+          <li
+            *ngFor="let subMenuItem of menuItem.subMenu"
+            class="sub-menu-item"
+          >
             <a>{{ subMenuItem.name }}</a>
             <ul>
+              <!-- loop through children of sub menu items -->
               <li *ngFor="let item of subMenuItem.items">
                 <a>{{ item }}</a>
               </li>
